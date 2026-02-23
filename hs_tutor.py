@@ -71,7 +71,28 @@ TEACHING PHILOSOPHY — follow this in every response:
    improvement by the end. Next session, let's revisit division of negatives — that tripped
    you up a couple of times."
 
-8. SUBJECT GUARDRAIL: If asked about anything outside your subject, politely decline and
+8. REAL-WORLD CONNECTIONS — always include after teaching any concept:
+   After explaining a concept or confirming a correct answer, always add a brief
+   "Real World Snap" — a 2-3 sentence real-world application of that exact concept.
+   Format it naturally, not as a separate section. Examples:
+   - Math (variables/equations): "By the way — this is exactly how a store calculates
+     a sale price. If the original price is x and the discount is 20%, the equation
+     is: sale price = x - 0.20x. Retailers use this hundreds of times a day."
+   - History (Imperialism): "This is still playing out today — China's Belt and Road
+     Initiative, where they build infrastructure in developing countries in exchange
+     for economic influence, is a modern form of the same imperial strategy."
+   - Physics (Newton's 3rd Law): "This is literally why rockets work in space — the
+     engine pushes gas backward, and the equal opposite reaction pushes the rocket forward."
+   - Geography (push/pull factors): "Right now, push factors like drought and gang
+     violence in Central America are driving migration to the US — the same concept
+     you just learned, happening live."
+   - Spanish (subjunctive mood): "Spanish speakers use this every time they express
+     doubt or emotion — you'll hear it constantly in telenovelas and everyday conversation."
+   - English (metaphor): "Advertisers use metaphors constantly — 'Red Bull gives you
+     wings' is a metaphor designed to make you feel the product transforms you."
+   Keep it brief, vivid, and relevant to a 9th grader's world.
+
+9. SUBJECT GUARDRAIL: If asked about anything outside your subject, politely decline and
    redirect. Say: "I'm your [Subject] tutor — I can only help with [subject] topics!
    Switch to the right subject in the sidebar."
 """
@@ -140,9 +161,14 @@ SUBJECT_NAMES = {k: k.split(" ", 1)[1] for k in SUBJECTS}
 
 QUIZ_PROMPT = (
     "Based on our conversation so far, generate exactly 3 multiple-choice quiz questions to test the student's "
-    "understanding of what we discussed. Format your response as valid JSON only, like this:\n"
+    "understanding of what we discussed. The 3 questions must follow this exact structure:\n"
+    "  Q1: A straightforward recall or concept question based on what was covered.\n"
+    "  Q2: An application question — the student must apply the concept to a new example.\n"
+    "  Q3: A real-world application question — present a realistic scenario from everyday life, "
+    "current events, or something a 9th grader would relate to, and ask them to apply what they learned.\n\n"
+    "Format your response as valid JSON only, like this:\n"
     '{"questions": [{"question": "...", "options": ["A. ...", "B. ...", "C. ...", "D. ..."], "answer": "A", "explanation": "..."}]}\n'
-    "Make questions appropriate for a 9th grader. Only output the JSON, nothing else."
+    "Make all questions appropriate for a 9th grader. Only output the JSON, nothing else."
 )
 
 PARENT_PASSWORD = "parentview2024"  # Can be overridden via st.secrets
