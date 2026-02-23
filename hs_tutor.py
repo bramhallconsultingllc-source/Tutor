@@ -772,7 +772,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ── API Key (from secrets or manual entry) ────────────────────────────────────
-api_key = st.secrets.get("openai_api_key", "")
+api_key = st.secrets.get("OPENAI_API_KEY", "")
 if not api_key:
     with st.sidebar:
         api_key = st.text_input("🔑 OpenAI API Key", type="password", placeholder="sk-...")
